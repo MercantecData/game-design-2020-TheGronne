@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class bulletScript : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Contains("Player"))
+        if (collision.gameObject.tag.Contains("Player") || collision.gameObject.tag.Contains("Item"))
         {
-
+            
         } else if (collision.gameObject.tag.Contains("Enemy"))
         {
-            collision.gameObject.GetComponent<spiderScript>().hp -= 10;
+            collision.gameObject.GetComponent<HealthController>().hp -= this.gameObject.GetComponent<DamageController>().damage;
             Destroy(gameObject);
         } else
         {

@@ -5,6 +5,8 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public float moveSpeed;
+    public bool usingItem = false;
+    public int itemID;
     public GameObject bullet;
     public Rigidbody2D rb;
     Vector2 movement;
