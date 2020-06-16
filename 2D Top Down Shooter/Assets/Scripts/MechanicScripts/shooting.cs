@@ -9,7 +9,8 @@ public class shooting : MonoBehaviour
     public GameObject waterDrop;
 
 
-    public float bulletForce = 20f;
+    public float bulletForce = 15f;
+    public float cooldown = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,11 @@ public class shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (cooldown >= 0)
+        {
+            cooldown -= Time.deltaTime;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && cooldown <= 0)
         {
             shoot();
         }
@@ -33,6 +38,7 @@ public class shooting : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+            cooldown = 0.5f;
         } 
         else if (gameObject.GetComponent<playerController>().itemID == 1)
         {
@@ -40,6 +46,7 @@ public class shooting : MonoBehaviour
             GameObject bullet = Instantiate(waterDrop, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+            cooldown = 1;
         }
     }
 }
