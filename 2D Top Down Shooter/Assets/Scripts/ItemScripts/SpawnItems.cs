@@ -10,6 +10,7 @@ public class SpawnItems : MonoBehaviour
     public Transform spawnpoint3;
     public Transform spawnpoint4;
     public Transform spawnpoint5;
+
     public GameObject[] items = new GameObject[5];
     // Start is called before the first frame update
     void Start()
