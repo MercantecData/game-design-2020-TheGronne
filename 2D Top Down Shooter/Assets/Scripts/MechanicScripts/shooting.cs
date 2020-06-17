@@ -8,7 +8,6 @@ public class shooting : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject waterDrop;
 
-
     public float bulletForce = 15f;
     public float cooldown = 0;
 
@@ -44,6 +43,7 @@ public class shooting : MonoBehaviour
         {
             bulletForce = 10f;
             GameObject bullet = Instantiate(waterDrop, firePoint.position, firePoint.rotation);
+            bullet.GetComponent<DamageController>().element = "water";
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
             cooldown = 1;

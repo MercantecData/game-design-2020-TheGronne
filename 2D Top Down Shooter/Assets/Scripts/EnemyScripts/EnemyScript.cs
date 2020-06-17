@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    protected float speed;
-
+    public float speed;
+    public string element;
     public GameObject player;
     // Start is called before the first frame update
     void Start()

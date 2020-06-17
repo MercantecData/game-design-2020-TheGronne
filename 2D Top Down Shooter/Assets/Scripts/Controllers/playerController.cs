@@ -7,8 +7,13 @@ public class playerController : MonoBehaviour
     public float moveSpeed;
     public bool usingItem = false;
     public int itemID;
+
     public GameObject bullet;
     public Rigidbody2D rb;
+
+    public List<GameObject> weapons = new List<GameObject>();
+    public int weaponUsed;
+
     Vector2 movement;
     public Vector2 shootPoint;
     // Start is called before the first frame update

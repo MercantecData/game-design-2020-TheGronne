@@ -6,8 +6,27 @@ public class spiderScript : EnemyScript
 {
     void Start()
     {
-        gameObject.GetComponent<HealthController>().hp = 100;
         speed = 2;
+        int randomNumber = Random.Range(1, 5);
+        int randomN = randomNumber;
+        switch (randomN)
+        {
+            case 1:
+                element = "fire";
+                break;
+            case 2:
+                element = "water";
+                break;
+            case 3:
+                element = "electric";
+                break;
+            case 4:
+                element = "void";
+                break;
+            default:
+                element = "void";
+                break;
+        }
     }
     void FixedUpdate()
     {

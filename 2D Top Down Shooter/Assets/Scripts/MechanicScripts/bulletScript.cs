@@ -11,7 +11,23 @@ public class bulletScript : MonoBehaviour
             
         } else if (collision.gameObject.tag.Contains("Enemy"))
         {
-            collision.gameObject.GetComponent<HealthController>().hp -= this.gameObject.GetComponent<DamageController>().damage;
+            if (this.gameObject.GetComponent<DamageController>().element == "water" && collision.gameObject.GetComponent<EnemyScript>().element == "fire")
+            {
+                collision.gameObject.GetComponent<HealthController>().hp -= this.gameObject.GetComponent<DamageController>().damage * 2;
+            } else if (this.gameObject.GetComponent<DamageController>().element == "fire" && collision.gameObject.GetComponent<EnemyScript>().element == "electric") 
+            {
+                collision.gameObject.GetComponent<HealthController>().hp -= this.gameObject.GetComponent<DamageController>().damage * 2;
+            } else if (this.gameObject.GetComponent<DamageController>().element == "electric" && collision.gameObject.GetComponent<EnemyScript>().element == "water")
+            {
+                collision.gameObject.GetComponent<HealthController>().hp -= this.gameObject.GetComponent<DamageController>().damage * 2;
+            } else if (this.gameObject.GetComponent<DamageController>().element == "void" && collision.gameObject.GetComponent<EnemyScript>().element == "void")
+            {
+                collision.gameObject.GetComponent<HealthController>().hp -= this.gameObject.GetComponent<DamageController>().damage * 2;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<HealthController>().hp -= this.gameObject.GetComponent<DamageController>().damage;
+            }
             Destroy(gameObject);
         } else
         {
