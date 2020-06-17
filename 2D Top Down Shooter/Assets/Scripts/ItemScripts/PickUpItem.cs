@@ -23,7 +23,7 @@ public class PickUpItem : MonoBehaviour
         int itemId = this.gameObject.GetComponent<ItemID>().itemID;
         if (player.GetComponent<playerController>().weapons.Count == 1)
         {
-
+            
         } else 
         {
             GameObject currentUsedItem = player.GetComponent<playerController>().weapons.Find(x => x.GetComponent<PickUpItem>().itemUsing = true);
