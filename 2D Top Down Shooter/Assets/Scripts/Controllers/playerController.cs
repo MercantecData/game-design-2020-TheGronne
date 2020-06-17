@@ -22,6 +22,10 @@ public class playerController : MonoBehaviour
     {
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
+        if (Input.GetKey(KeyCode.Escape))
+        {
+
+        }
         if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
         {
             transform.localRotation = Quaternion.Euler(0, 0, 45);

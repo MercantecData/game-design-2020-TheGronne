@@ -5,7 +5,7 @@ using UnityEngine;
 public class healthBar : MonoBehaviour
 {
     public GameObject player;
-    Transform bar;
+    public Transform bar;
     // Start is called before the first frame update
     void Start()
     {
