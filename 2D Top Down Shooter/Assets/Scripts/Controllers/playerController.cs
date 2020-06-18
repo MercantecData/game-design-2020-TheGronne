@@ -12,7 +12,6 @@ public class playerController : MonoBehaviour
     public Rigidbody2D rb;
 
     public List<GameObject> weapons = new List<GameObject>();
-    public int weaponUsed;
 
     Vector2 movement;
     public Vector2 shootPoint;

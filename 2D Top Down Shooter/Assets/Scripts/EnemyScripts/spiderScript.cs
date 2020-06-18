@@ -28,6 +28,16 @@ public class spiderScript : EnemyScript
                 break;
         }
     }
+    private void Update()
+    {
+        Vector3 moveDirection = gameObject.transform.position - player.transform.position;
+        if (moveDirection != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.Rotate(0f, 0f, -90f);
+        }
+    }
     void FixedUpdate()
     {
         player = GameObject.Find("Player");

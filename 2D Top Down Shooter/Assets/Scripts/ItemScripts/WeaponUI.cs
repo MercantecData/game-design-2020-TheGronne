@@ -9,6 +9,9 @@ public class WeaponUI : MonoBehaviour
 
     public Sprite Bow;
     public Sprite WaterStaff;
+    public Sprite FireSword;
+    public Sprite ElectricStaff;
+    public Sprite VoidStaff;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,13 @@ public class WeaponUI : MonoBehaviour
                 weaponUI.sprite = WaterStaff;
                 break;
             case 2:
-
+                weaponUI.sprite = FireSword;
+                break;
+            case 3:
+                weaponUI.sprite = ElectricStaff;
+                break;
+            case 4:
+                weaponUI.sprite = VoidStaff;
                 break;
             default:
 

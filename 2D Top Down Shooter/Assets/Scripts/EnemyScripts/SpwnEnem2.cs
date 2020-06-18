@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEnemies : MonoBehaviour
+public class SpwnEnem2 : MonoBehaviour
 {
     public GameObject[] spawnpoints;
-    public GameObject[] enemies = new GameObject[1];
+    public GameObject[] enemies = new GameObject[3];
     // Start is called before the first frame update
     void Start()
     {

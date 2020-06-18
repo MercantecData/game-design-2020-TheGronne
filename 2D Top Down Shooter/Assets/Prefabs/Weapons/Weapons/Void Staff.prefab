@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: -0.0775522, y: 0.53187084}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,6 +125,7 @@ MonoBehaviour:
   pickedUp: 0
   player: {fileID: 0}
   hand: {fileID: 0}
+  itemUsing: 0
 --- !u!114 &2797729504027202412
 MonoBehaviour:
   m_ObjectHideFlags: 0
