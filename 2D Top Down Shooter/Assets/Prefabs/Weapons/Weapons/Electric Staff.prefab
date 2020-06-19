@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2797729504027202410}
   - component: {fileID: 2797729504027202409}
   - component: {fileID: 2797729504027202408}
-  - component: {fileID: 2797729504027202411}
-  - component: {fileID: 2797729504027202412}
+  - component: {fileID: 7302736390028557890}
+  - component: {fileID: 2490341589939681968}
   m_Layer: 11
   m_Name: Electric Staff
   m_TagString: Item
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0766485, y: 2.150261}
   m_EdgeRadius: 0
---- !u!114 &2797729504027202411
+--- !u!114 &7302736390028557890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,14 +119,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2797729504027202423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 406e83108f0f9384eac24b06ec9389b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 57de350565d92154582812c3fff445b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickedUp: 0
   player: {fileID: 0}
   hand: {fileID: 0}
   itemUsing: 0
---- !u!114 &2797729504027202412
+  plzwork: 0
+--- !u!114 &2490341589939681968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,7 +135,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2797729504027202423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0f598d5c8af3e42bd597ecef55d799, type: 3}
+  m_Script: {fileID: 11500000, guid: 826bc3603bd74104bbbb68ca53f8078b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
   itemID: 2
+  bulletSpeed: 100
+  bulletCooldown: 0.1
+  ammo: 100
+  element: electric
+  bullet: {fileID: 6949036157207240518, guid: f19e7606b80af524783a6b5fe6298630, type: 3}
+  destroyBulletTimer: 100

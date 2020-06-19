@@ -23,33 +23,33 @@ public class swapItems : MonoBehaviour
         {
             if (currentWeapon == 1)
             {
-                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<PickUpItem>().itemUsing = false;
+                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<WeaponClass>().itemUsing = false;
                 currentWeapon = player.GetComponent<playerController>().weapons.Count;
-                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<PickUpItem>().itemUsing = true;
+                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<WeaponClass>().itemUsing = true;
             } else
             {
-                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<PickUpItem>().itemUsing = false;
+                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<WeaponClass>().itemUsing = false;
                 currentWeapon -= 1;
-                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<PickUpItem>().itemUsing = true;
+                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<WeaponClass>().itemUsing = true;
             }
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (currentWeapon == player.GetComponent<playerController>().weapons.Count)
             {
-                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<PickUpItem>().itemUsing = false;
+                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<WeaponClass>().itemUsing = false;
                 currentWeapon = 1;
-                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<PickUpItem>().itemUsing = true;
+                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<WeaponClass>().itemUsing = true;
             } else
             {
-                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<PickUpItem>().itemUsing = false;
+                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<WeaponClass>().itemUsing = false;
                 currentWeapon += 1;
-                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<PickUpItem>().itemUsing = true;
+                player.GetComponent<playerController>().weapons[currentWeapon - 1].GetComponent<WeaponClass>().itemUsing = true;
             }
         }
         for (int i = 0; i < player.GetComponent<playerController>().weapons.Count; i++)
         {
-            if (player.GetComponent<playerController>().weapons[i].GetComponent<PickUpItem>().itemUsing == false)
+            if (player.GetComponent<playerController>().weapons[i].GetComponent<WeaponClass>().itemUsing == false)
             {
                 player.GetComponent<playerController>().weapons[i].transform.position = new Vector2(1000, 1000);
             }

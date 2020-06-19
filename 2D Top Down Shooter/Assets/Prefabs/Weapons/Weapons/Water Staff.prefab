@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 2797729504027202410}
   - component: {fileID: 2797729504027202409}
   - component: {fileID: 2797729504027202408}
-  - component: {fileID: 2797729504027202411}
-  - component: {fileID: 2797729504027202412}
   - component: {fileID: 1802173768890918460}
-  - component: {fileID: -7381266230848775917}
+  - component: {fileID: 912874830026832925}
+  - component: {fileID: 6215447443641588753}
   m_Layer: 11
   m_Name: Water Staff
   m_TagString: Item
@@ -112,35 +111,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0766485, y: 2.150261}
   m_EdgeRadius: 0
---- !u!114 &2797729504027202411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2797729504027202423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 406e83108f0f9384eac24b06ec9389b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  hand: {fileID: 0}
-  itemUsing: 0
-  plzwork: 0
---- !u!114 &2797729504027202412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2797729504027202423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0f598d5c8af3e42bd597ecef55d799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemID: 1
 --- !u!50 &1802173768890918460
 Rigidbody2D:
   serializedVersion: 4
@@ -162,7 +132,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &-7381266230848775917
+--- !u!114 &912874830026832925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +141,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 2797729504027202423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5824c83a9c2f0314092872ae34ce9975, type: 3}
+  m_Script: {fileID: 11500000, guid: 57de350565d92154582812c3fff445b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 5
+  player: {fileID: 0}
+  hand: {fileID: 0}
+  itemUsing: 0
+  plzwork: 0
+--- !u!114 &6215447443641588753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797729504027202423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826bc3603bd74104bbbb68ca53f8078b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  itemID: 1
+  bulletSpeed: 10
+  bulletCooldown: 0.5
+  ammo: 25
+  element: water
+  bullet: {fileID: 6949036157207240518, guid: 5cce910f5c4d6034eaafec692c8fdff9, type: 3}
+  destroyBulletTimer: 100

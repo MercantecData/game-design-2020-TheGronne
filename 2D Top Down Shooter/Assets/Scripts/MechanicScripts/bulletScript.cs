@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class bulletScript : MonoBehaviour
 {
+    public float destroyTimer;
+    private void Update()
+    {
+        if (destroyTimer <= 0)
+        {
+            Destroy(gameObject);
+        }
+        destroyTimer -= Time.deltaTime;
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Contains("Player") || collision.gameObject.tag.Contains("Item"))

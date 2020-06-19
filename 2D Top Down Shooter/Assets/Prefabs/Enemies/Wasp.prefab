@@ -162,6 +162,11 @@ MonoBehaviour:
   hp: 5
   itemDrops:
   - {fileID: 1451577786559578024, guid: 1b4736677931a2c4b8ad346774ec5016, type: 3}
+  - {fileID: 1925822776963807985, guid: 0f22fa5ea5185114893e209209bb1f02, type: 3}
+  - {fileID: 2797729504027202423, guid: a57c65d7c14199c429a1f415df9590ca, type: 3}
+  - {fileID: 2797729504027202423, guid: a0edf932afdde1449a53aceb01eae4ed, type: 3}
+  - {fileID: 2797729504027202423, guid: a9b3de83f0bcd1e468ed0aa6ce08d884, type: 3}
+  - {fileID: 2797729504027202423, guid: 48f793a0a9617e64c8f877d3856b955e, type: 3}
 --- !u!114 &-8578658381843100134
 MonoBehaviour:
   m_ObjectHideFlags: 0

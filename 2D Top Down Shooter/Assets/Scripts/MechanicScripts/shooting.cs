@@ -7,10 +7,6 @@ public class shooting : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public GameObject waterDrop;
-    public GameObject lightning;
-    public GameObject fire;
-    public GameObject voiding;
 
     public float bulletForce = 15f;
     public float cooldown = 0;
@@ -38,46 +34,24 @@ public class shooting : MonoBehaviour
     {
         if (gameObject.GetComponent<playerController>().usingItem == false)
         {
+            bulletForce = 20f;
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
             cooldown = 0.5f;
+            bullet.GetComponent<bulletScript>().destroyTimer = 10;
         } 
-        else if (gameObject.GetComponent<playerController>().itemID == 1)
+        else if (gameObject.GetComponent<playerController>().itemID > 0)
         {
-            bulletForce = 10f;
-            GameObject bullet = Instantiate(waterDrop, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<DamageController>().element = "water";
+            bulletForce = gameObject.GetComponent<playerController>().weapons[gameObject.GetComponent<swapItems>().currentWeapon - 1].GetComponent<WeaponStats>().bulletSpeed;
+            GameObject bullet = Instantiate(gameObject.GetComponent<playerController>().weapons[gameObject.GetComponent<swapItems>().currentWeapon - 1].GetComponent<WeaponStats>().bullet, firePoint.position, firePoint.rotation);
+            bullet.GetComponent<DamageController>().element = gameObject.GetComponent<playerController>().weapons[gameObject.GetComponent<swapItems>().currentWeapon - 1].GetComponent<WeaponStats>().element;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-            cooldown = 1;
-            gameObject.GetComponent<playerController>().weapons[gameObject.GetComponent<swapItems>().currentWeapon - 1].GetComponent<AmmoScript>().ammo -= 1;
-        } else if (gameObject.GetComponent<playerController>().itemID == 2)
-        {
-            bulletForce = 100f;
-            GameObject bullet = Instantiate(lightning, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<DamageController>().element = "electric";
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-            cooldown = 0.25f;
-        } else if (gameObject.GetComponent<playerController>().itemID == 3)
-        {
-            bulletForce = 0f;
-            GameObject bullet = Instantiate(fire, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<DamageController>().element = "fire";
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-            float destroyTime = 0.1f;
-            Destroy(bullet, destroyTime);
-            cooldown = 0.5f;
-        } else if (gameObject.GetComponent<playerController>().itemID == 4)
-        {
-            bulletForce = 5f;
-            GameObject bullet = Instantiate(voiding, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<DamageController>().element = "void";
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-            cooldown = 2f;
-        }
+            bullet.GetComponent<DamageController>().damage = gameObject.GetComponent<playerController>().weapons[gameObject.GetComponent<swapItems>().currentWeapon - 1].GetComponent<WeaponStats>().damage;
+            cooldown = gameObject.GetComponent<playerController>().weapons[gameObject.GetComponent<swapItems>().currentWeapon - 1].GetComponent<WeaponStats>().bulletCooldown;
+            gameObject.GetComponent<playerController>().weapons[gameObject.GetComponent<swapItems>().currentWeapon - 1].GetComponent<WeaponStats>().ammo -= 1;
+            bullet.GetComponent<bulletScript>().destroyTimer = gameObject.GetComponent<playerController>().weapons[gameObject.GetComponent<swapItems>().currentWeapon - 1].GetComponent<WeaponStats>().destroyBulletTimer;
+        } 
     }
 }

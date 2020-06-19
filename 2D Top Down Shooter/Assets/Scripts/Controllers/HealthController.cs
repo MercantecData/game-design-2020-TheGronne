@@ -6,7 +6,7 @@ public class HealthController : MonoBehaviour
 {
     public int hp;
     GameObject lvl;
-    public GameObject[] itemDrops = new GameObject[1];
+    public GameObject[] itemDrops = new GameObject[6];
     void Start()
     {
         
@@ -25,7 +25,62 @@ public class HealthController : MonoBehaviour
                 switch (randomSpawnPoints)
                 {
                     case 1:
-                        Instantiate(itemDrops[randomSpawnPoints - 1], gameObject.transform.position, gameObject.transform.rotation);
+                        int item = Random.Range(0, 11);
+                        switch (item)
+                        {
+                            case 0:
+                                Instantiate(itemDrops[0], gameObject.transform.position, gameObject.transform.rotation);
+                                break;
+                            case 1:
+                                Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
+                                break;
+                            case 2:
+                                Instantiate(itemDrops[0], gameObject.transform.position, gameObject.transform.rotation);
+                                break;
+                            case 3:
+                                Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
+                                break;
+                            case 4:
+                                Instantiate(itemDrops[0], gameObject.transform.position, gameObject.transform.rotation);
+                                break;
+                            case 5:
+                                Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
+                                break;
+                            case 6:
+                                Instantiate(itemDrops[0], gameObject.transform.position, gameObject.transform.rotation);
+                                break;
+                            case 7:
+                                Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
+                                break;
+                            case 8:
+                                Instantiate(itemDrops[0], gameObject.transform.position, gameObject.transform.rotation);
+                                break;
+                            case 9:
+                                Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
+                                break;
+                            case 10:
+                                int weapon = Random.Range(0, itemDrops.Length - 2);
+                                switch (weapon)
+                                {
+                                    case 0:
+                                        Instantiate(itemDrops[2], gameObject.transform.position, gameObject.transform.rotation);
+                                        break;
+                                    case 1:
+                                        Instantiate(itemDrops[3], gameObject.transform.position, gameObject.transform.rotation);
+                                        break;
+                                    case 2:
+                                        Instantiate(itemDrops[4], gameObject.transform.position, gameObject.transform.rotation);
+                                        break;
+                                    case 3:
+                                        Instantiate(itemDrops[5], gameObject.transform.position, gameObject.transform.rotation);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     case 2:
 

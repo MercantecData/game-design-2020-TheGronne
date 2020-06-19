@@ -6,6 +6,7 @@ public class spiderScript : EnemyScript
 {
     void Start()
     {
+        player = GameObject.Find("Player");
         speed = 2;
         int randomNumber = Random.Range(1, 5);
         int randomN = randomNumber;
@@ -40,7 +41,6 @@ public class spiderScript : EnemyScript
     }
     void FixedUpdate()
     {
-        player = GameObject.Find("Player");
         Vector3 target = player.transform.position;
         target.z = transform.position.z;
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);

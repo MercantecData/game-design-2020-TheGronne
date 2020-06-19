@@ -6,6 +6,7 @@ public class waspScript : EnemyScript
 {
     void Start()
     {
+        player = GameObject.Find("Player");
         speed = 3;
         element = "electric";
     }
@@ -24,7 +25,6 @@ public class waspScript : EnemyScript
 
     void FixedUpdate()
     {
-        player = GameObject.Find("Player");
         Vector3 target = player.transform.position;
         target.z = transform.position.z;
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);

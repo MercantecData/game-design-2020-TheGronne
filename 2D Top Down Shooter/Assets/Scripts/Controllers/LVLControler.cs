@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LVLControler : MonoBehaviour
 {
+    public GameObject player;
     public GameObject lvl1;
     public GameObject lvl2;
     public GameObject lvl3;
@@ -17,10 +18,13 @@ public class LVLControler : MonoBehaviour
     public GameObject enemiesleft;
     public GameObject victorymenu;
     public GameObject currentShop;
+    public GameObject ammoLeftText;
+    public GameObject ammoLeftUI;
     public int firstTimeCounter; //Bliver brugt for at stoppe nogle ting i update sådan at de ikke kører mens man er i gang med noget andet
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         int randomLVL = Random.Range(1,4);
         switch (randomLVL)
         {
@@ -41,6 +45,11 @@ public class LVLControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player.GetComponent<playerController>().weapons.Count == 0)
+        {
+            ammoLeftUI.SetActive(false);
+            player.GetComponent<playerController>().usingItem = false;
+        }
         if (SpawnedEnemies.Count == 0 && firstTimeCounter == 0)
         {
             lvlCounter++;
@@ -77,6 +86,7 @@ public class LVLControler : MonoBehaviour
             SpawnedEnemies[i].GetComponent<waspScript>().speed += 0.5f;
         }
         currentlvltext.GetComponent<Text>().text = ("Current lvl: " + lvlCounter);
+        firstTimeCounter = 0;
     }
 
     public void victoryMenu()
@@ -104,5 +114,9 @@ public class LVLControler : MonoBehaviour
         victorymenu.SetActive(false);
         Time.timeScale = 1;
         newlvl();
+    }
+    private void FixedUpdate()
+    {
+        ammoLeftText.GetComponent<Text>().text = player.GetComponent<playerController>().weapons[player.GetComponent<swapItems>().currentWeapon - 1].GetComponent<WeaponStats>().ammo.ToString();
     }
 }
