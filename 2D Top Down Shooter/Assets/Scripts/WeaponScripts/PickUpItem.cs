@@ -38,13 +38,6 @@ public class PickUpItem : MonoBehaviour
         {
             gameObject.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y, hand.transform.position.z - 1);
             transform.rotation = player.transform.rotation;
-            /*if (itemUsing == true)
-            {
-                gameObject.SetActive(true);
-            } else if (itemUsing == false)
-            {
-                gameObject.SetActive(false);
-            }*/
         }
     }
 }

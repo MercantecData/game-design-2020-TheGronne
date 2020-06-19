@@ -51,6 +51,7 @@ public class shooting : MonoBehaviour
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
             cooldown = 1;
+            gameObject.GetComponent<playerController>().weapons[gameObject.GetComponent<swapItems>().currentWeapon - 1].GetComponent<AmmoScript>().ammo -= 1;
         } else if (gameObject.GetComponent<playerController>().itemID == 2)
         {
             bulletForce = 100f;

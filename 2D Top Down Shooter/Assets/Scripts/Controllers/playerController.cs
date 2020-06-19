@@ -15,6 +15,8 @@ public class playerController : MonoBehaviour
 
     Vector2 movement;
     public Vector2 shootPoint;
+
+    public GameObject pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class playerController : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
         if (Input.GetKey(KeyCode.Escape))
         {
-
+            pauseGame();
         }
         if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
         {
@@ -65,5 +67,17 @@ public class playerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    public void resumeGame()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+    }
+
+    public void pauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 }

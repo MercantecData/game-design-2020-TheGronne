@@ -69,6 +69,6 @@ public class snakeScript : EnemyScript
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         Vector2 direction = (target.transform.position - bullet.transform.position).normalized * bulletSpeed;
         rb.velocity = new Vector2(direction.x, direction.y);
-
+        bullet.GetComponent<DamageController>().element = this.gameObject.GetComponent<DamageController>().element;
     }
 }

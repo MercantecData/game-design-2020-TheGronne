@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2797729504027202411}
   - component: {fileID: 2797729504027202412}
   - component: {fileID: 1802173768890918460}
+  - component: {fileID: -7381266230848775917}
   m_Layer: 11
   m_Name: Water Staff
   m_TagString: Item
@@ -123,10 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406e83108f0f9384eac24b06ec9389b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickedUp: 0
   player: {fileID: 0}
   hand: {fileID: 0}
   itemUsing: 0
+  plzwork: 0
 --- !u!114 &2797729504027202412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +162,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-7381266230848775917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797729504027202423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5824c83a9c2f0314092872ae34ce9975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo: 5

@@ -19,7 +19,7 @@ public class SpawnEnemies : MonoBehaviour
         {
             int randomEnemyNumber = Random.Range(0, enemies.Length);
             GameObject enemy = Instantiate(enemies[randomEnemyNumber], spawnpoints[i].gameObject.transform.position, spawnpoints[i].gameObject.transform.rotation);
-            enemy.GetComponent<HealthController>().hp += GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter * 5;
+            enemy.GetComponent<HealthController>().hp += GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter * 5 - 5;
             GameObject.Find("Controller").GetComponent<LVLControler>().SpawnedEnemies.Add(enemy);
         }
     }

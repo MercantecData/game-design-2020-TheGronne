@@ -15,7 +15,6 @@ public class swapItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentWeapon);
         if (currentWeapon > player.GetComponent<playerController>().weapons.Count)
         {
             currentWeapon = player.GetComponent<playerController>().weapons.Count;

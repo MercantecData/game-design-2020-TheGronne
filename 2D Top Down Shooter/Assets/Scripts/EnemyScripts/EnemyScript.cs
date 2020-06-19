@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (collision.gameObject.tag.Contains("Player"))
         {
-            collision.gameObject.GetComponent<HealthController>().hp -= this.gameObject.GetComponent<DamageController>().damage;
+            //collision.gameObject.GetComponent<HealthController>().hp -= this.gameObject.GetComponent<DamageController>().damage;
         }
     }
 }

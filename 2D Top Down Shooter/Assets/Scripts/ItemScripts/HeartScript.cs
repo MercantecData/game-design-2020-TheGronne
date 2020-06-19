@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class HeartScript : MonoBehaviour
 {
+    float timer;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<HealthController>().hp < 100)
@@ -17,5 +19,21 @@ public class HeartScript : MonoBehaviour
             }
         }
         Destroy(gameObject);
+    }
+
+    public void Start()
+    {
+        timer = 10;
+    }
+
+    public void Update()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        } else
+        {
+            Destroy(gameObject);
+        }
     }
 }

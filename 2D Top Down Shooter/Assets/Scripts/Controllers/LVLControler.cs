@@ -8,10 +8,16 @@ public class LVLControler : MonoBehaviour
     public GameObject lvl1;
     public GameObject lvl2;
     public GameObject lvl3;
+    public GameObject shop;
     public List<GameObject> SpawnedEnemies = new List<GameObject>();
-    public int lvlCounter;
+    public int lvlCounter = 1;
     public GameObject currentlvl;
     public GameObject currentlvltext;
+    public int numberOfEnemies;
+    public GameObject enemiesleft;
+    public GameObject victorymenu;
+    public GameObject currentShop;
+    public int firstTimeCounter; //Bliver brugt for at stoppe nogle ting i update sådan at de ikke kører mens man er i gang med noget andet
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +41,14 @@ public class LVLControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SpawnedEnemies.Count == 0)
+        if (SpawnedEnemies.Count == 0 && firstTimeCounter == 0)
         {
             lvlCounter++;
-            newlvl();
+            victoryMenu();
+            firstTimeCounter = 1;
         }
+        numberOfEnemies = SpawnedEnemies.Count;
+        enemiesleft.GetComponent<Text>().text = ("Left: " + numberOfEnemies);
     }
 
     public void newlvl()
@@ -67,6 +76,33 @@ public class LVLControler : MonoBehaviour
             SpawnedEnemies[i].GetComponent<spiderScript>().speed += 0.25f;
             SpawnedEnemies[i].GetComponent<waspScript>().speed += 0.5f;
         }
-        currentlvltext.GetComponent<Text>().text = ("Current lvl: " + currentlvl);
+        currentlvltext.GetComponent<Text>().text = ("Current lvl: " + lvlCounter);
+    }
+
+    public void victoryMenu()
+    {
+        Time.timeScale = 0;
+        victorymenu.SetActive(true);
+    }
+
+    public void goToShop()
+    {
+        Debug.Log(1);
+        Time.timeScale = 1;
+        Debug.Log(2);
+        victorymenu.SetActive(false);
+        Debug.Log(3);
+        currentShop = Instantiate(shop);
+        Debug.Log(4);
+        GameObject.Find("Player").transform.position = new Vector2(-1.5f, -0.8f);
+        Debug.Log(5);
+        currentlvl.SetActive(false);
+    }
+
+    public void NextLevel()
+    {
+        victorymenu.SetActive(false);
+        Time.timeScale = 1;
+        newlvl();
     }
 }
