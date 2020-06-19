@@ -6,6 +6,7 @@ using UnityEngine;
 public class HeartScript : MonoBehaviour
 {
     float timer;
+    public bool inShop = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<HealthController>().hp < 100)

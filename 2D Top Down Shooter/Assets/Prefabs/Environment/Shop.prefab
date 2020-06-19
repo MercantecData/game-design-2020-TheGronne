@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3960191359887183330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.94, y: 9.36, z: 0}
+  m_LocalPosition: {x: -16.09, y: 9.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3960191358814093469}
@@ -119,7 +119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3960191360355168164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.82, y: 9.27, z: 0}
+  m_LocalPosition: {x: -0.72, y: 9.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3960191358814093469}
@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3960191360521824887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.1, y: 8.9, z: 0}
+  m_LocalPosition: {x: 14.2, y: 9.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3960191358814093469}
@@ -1112,16 +1112,17 @@ MonoBehaviour:
   - {fileID: 3960191360355168165}
   - {fileID: 3960191360521824872}
   items:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1451577786559578024, guid: 1b4736677931a2c4b8ad346774ec5016, type: 3}
+  - {fileID: 1925822776963807985, guid: 0f22fa5ea5185114893e209209bb1f02, type: 3}
+  - {fileID: 1451577786559578024, guid: 1b4736677931a2c4b8ad346774ec5016, type: 3}
+  - {fileID: 1925822776963807985, guid: 0f22fa5ea5185114893e209209bb1f02, type: 3}
+  - {fileID: 1451577786559578024, guid: 1b4736677931a2c4b8ad346774ec5016, type: 3}
+  - {fileID: 1925822776963807985, guid: 0f22fa5ea5185114893e209209bb1f02, type: 3}
+  - {fileID: 2797729504027202423, guid: a57c65d7c14199c429a1f415df9590ca, type: 3}
+  - {fileID: 2797729504027202423, guid: a0edf932afdde1449a53aceb01eae4ed, type: 3}
+  - {fileID: 2797729504027202423, guid: a9b3de83f0bcd1e468ed0aa6ce08d884, type: 3}
+  - {fileID: 2797729504027202423, guid: 48f793a0a9617e64c8f877d3856b955e, type: 3}
+  spawnedItems: []
 --- !u!1 &7046830772251077725
 GameObject:
   m_ObjectHideFlags: 0
