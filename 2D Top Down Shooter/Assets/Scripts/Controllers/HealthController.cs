@@ -35,28 +35,28 @@ public class HealthController : MonoBehaviour
                                 Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
                                 break;
                             case 2:
-                                Instantiate(itemDrops[0], gameObject.transform.position, gameObject.transform.rotation);
+                                Instantiate(itemDrops[6], gameObject.transform.position, gameObject.transform.rotation);
                                 break;
                             case 3:
                                 Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
                                 break;
                             case 4:
-                                Instantiate(itemDrops[0], gameObject.transform.position, gameObject.transform.rotation);
+                                Instantiate(itemDrops[2], gameObject.transform.position, gameObject.transform.rotation);
                                 break;
                             case 5:
-                                Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
+                                Instantiate(itemDrops[6], gameObject.transform.position, gameObject.transform.rotation);
                                 break;
                             case 6:
-                                Instantiate(itemDrops[0], gameObject.transform.position, gameObject.transform.rotation);
+                                Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
                                 break;
                             case 7:
-                                Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
+                                Instantiate(itemDrops[2], gameObject.transform.position, gameObject.transform.rotation);
                                 break;
                             case 8:
-                                Instantiate(itemDrops[0], gameObject.transform.position, gameObject.transform.rotation);
+                                Instantiate(itemDrops[6], gameObject.transform.position, gameObject.transform.rotation);
                                 break;
                             case 9:
-                                Instantiate(itemDrops[1], gameObject.transform.position, gameObject.transform.rotation);
+                                Instantiate(itemDrops[6], gameObject.transform.position, gameObject.transform.rotation);
                                 break;
                             case 10:
                                 int weapon = Random.Range(0, itemDrops.Length - 2);

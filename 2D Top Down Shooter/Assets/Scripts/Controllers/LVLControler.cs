@@ -20,6 +20,7 @@ public class LVLControler : MonoBehaviour
     public GameObject currentShop;
     public GameObject ammoLeftText;
     public GameObject ammoLeftUI;
+    public GameObject amountOfCoins;
     public int firstTimeCounter; //Bliver brugt for at stoppe nogle ting i update sådan at de ikke kører mens man er i gang med noget andet
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class LVLControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        amountOfCoins.GetComponent<Text>().text = player.GetComponent<playerController>().coins.ToString();
         if (player.GetComponent<playerController>().weapons.Count == 0)
         {
             ammoLeftUI.SetActive(false);

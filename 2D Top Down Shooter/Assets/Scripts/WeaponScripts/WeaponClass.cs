@@ -8,6 +8,8 @@ public class WeaponClass : MonoBehaviour
     public GameObject hand;
     public bool itemUsing = false;
     public int plzwork = 0;
+    public bool isShopItem = false;
+    public bool isBought = false;
     protected void Start()
     {
         player = GameObject.Find("Player");
@@ -16,21 +18,51 @@ public class WeaponClass : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("PICKED UP");
-        for (int i = 0; i < player.GetComponent<playerController>().weapons.Count; i++)
+        if (isShopItem)
         {
-            player.GetComponent<playerController>().weapons[i].GetComponent<WeaponClass>().itemUsing = false;
-        }
-        if (plzwork == 0) //Triggeren triggede mere end 1 gang, så lavede dette
+            if (collision.gameObject.GetComponent<playerController>().coins >= gameObject.GetComponent<triggerScript>().price)
+            {
+                for (int i = 0; i < player.GetComponent<playerController>().weapons.Count; i++)
+                {
+                    player.GetComponent<playerController>().weapons[i].GetComponent<WeaponClass>().itemUsing = false;
+                }
+                if (plzwork == 0) //Triggeren triggede mere end 1 gang, så lavede dette
+                {
+                    player.GetComponent<playerController>().weapons.Add(gameObject);
+                    player.GetComponent<swapItems>().currentWeapon = player.GetComponent<playerController>().weapons.Count;
+                    plzwork++;
+                }
+                player.GetComponent<playerController>().itemID = gameObject.GetComponent<WeaponStats>().itemID;
+                collision.GetComponent<playerController>().usingItem = true;
+                itemUsing = true;
+                GameObject.Find("Controller").GetComponent<LVLControler>().ammoLeftUI.SetActive(true);
+
+                gameObject.GetComponent<WeaponStats>().ammo += (gameObject.GetComponent<triggerScript>().price - 10);
+
+                collision.GetComponent<playerController>().coins -= gameObject.GetComponent<triggerScript>().price;
+
+                isBought = true;
+            }
+        } 
+        else 
         {
-            player.GetComponent<playerController>().weapons.Add(gameObject);
-            player.GetComponent<swapItems>().currentWeapon = player.GetComponent<playerController>().weapons.Count;
-            plzwork++;
+
+            for (int i = 0; i < player.GetComponent<playerController>().weapons.Count; i++)
+            {
+                player.GetComponent<playerController>().weapons[i].GetComponent<WeaponClass>().itemUsing = false;
+            }
+            if (plzwork == 0) //Triggeren triggede mere end 1 gang, så lavede dette
+            {
+                player.GetComponent<playerController>().weapons.Add(gameObject);
+                player.GetComponent<swapItems>().currentWeapon = player.GetComponent<playerController>().weapons.Count;
+                plzwork++;
+            }
+            player.GetComponent<playerController>().itemID = gameObject.GetComponent<WeaponStats>().itemID;
+            collision.GetComponent<playerController>().usingItem = true;
+            itemUsing = true;
+            GameObject.Find("Controller").GetComponent<LVLControler>().ammoLeftUI.SetActive(true);
+
         }
-        player.GetComponent<playerController>().itemID = gameObject.GetComponent<WeaponStats>().itemID;
-        collision.GetComponent<playerController>().usingItem = true;
-        itemUsing = true;
-        GameObject.Find("Controller").GetComponent<LVLControler>().ammoLeftUI.SetActive(true);
     }
 
     protected void Update()

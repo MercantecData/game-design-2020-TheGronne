@@ -7,6 +7,7 @@ public class playerController : MonoBehaviour
     public float moveSpeed;
     public bool usingItem = false;
     public int itemID;
+    public int coins;
     
     public GameObject bullet;
     public Rigidbody2D rb;

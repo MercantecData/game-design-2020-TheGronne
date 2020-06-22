@@ -8,6 +8,13 @@ public class LeaveShop : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            for (int i = 0; i < GameObject.Find("Controller").GetComponent<LVLControler>().currentShop.GetComponent<shopItemScript>().spawnedItems.Count; i++)
+            {
+                if (GameObject.Find("Controller").GetComponent<LVLControler>().currentShop.GetComponent<shopItemScript>().spawnedItems[i].GetComponent<WeaponClass>().isBought == false)
+                {
+                    Destroy(GameObject.Find("Controller").GetComponent<LVLControler>().currentShop.GetComponent<shopItemScript>().spawnedItems[i]);
+                }
+            }
             Destroy(GameObject.Find("Controller").GetComponent<LVLControler>().currentShop);
             GameObject.Find("Controller").GetComponent<LVLControler>().newlvl();
             GameObject.Find("Controller").GetComponent<LVLControler>().firstTimeCounter = 0;
