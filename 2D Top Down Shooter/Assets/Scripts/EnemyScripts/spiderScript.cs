@@ -29,6 +29,13 @@ public class spiderScript : EnemyScript
                 break;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<HealthController>().hp -= gameObject.GetComponent<DamageController>().damage;
+        }
+    }
     private void Update()
     {
         Vector3 moveDirection = gameObject.transform.position - player.transform.position;

@@ -126,6 +126,8 @@ MonoBehaviour:
   hand: {fileID: 0}
   itemUsing: 0
   plzwork: 0
+  isShopItem: 0
+  isBought: 0
 --- !u!114 &3535852192725103173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,8 +143,8 @@ MonoBehaviour:
   damage: 50
   itemID: 3
   bulletSpeed: 0
-  bulletCooldown: 0.51
-  ammo: 100
+  bulletCooldown: 0.5
+  ammo: 25
   element: fire
   bullet: {fileID: 6949036157207240518, guid: 35398679433472741aaaa901236df19f, type: 3}
   destroyBulletTimer: 0.1

@@ -7,11 +7,7 @@ public class WeaponUI : MonoBehaviour
     public GameObject player;
     public SpriteRenderer weaponUI;
 
-    public Sprite Bow;
-    public Sprite WaterStaff;
-    public Sprite FireSword;
-    public Sprite ElectricStaff;
-    public Sprite VoidStaff;
+    public List<Sprite> weaponSprites = new List<Sprite>();
     // Start is called before the first frame update
     void Start()
     {
@@ -21,27 +17,7 @@ public class WeaponUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (player.GetComponent<playerController>().itemID)
-        {
-            case 0:
-                weaponUI.sprite = Bow;
-                weaponUI.color = new Color(1f,1f,1f,1f);
-                break;
-            case 1:
-                weaponUI.sprite = WaterStaff;
-                break;
-            case 2:
-                weaponUI.sprite = FireSword;
-                break;
-            case 3:
-                weaponUI.sprite = ElectricStaff;
-                break;
-            case 4:
-                weaponUI.sprite = VoidStaff;
-                break;
-            default:
-
-                break;
-        }
+        weaponUI.sprite = weaponSprites[player.GetComponent<playerController>().itemID];
+        weaponUI.color = new Color(1f,1f,1f,1f);
     }
 }

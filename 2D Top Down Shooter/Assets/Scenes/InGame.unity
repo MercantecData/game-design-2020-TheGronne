@@ -983,11 +983,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   weaponUI: {fileID: 637224200}
-  Bow: {fileID: 21300000, guid: 646b5be926be9c0498ae73798ad41b7d, type: 3}
-  WaterStaff: {fileID: 21300000, guid: ae6df6ef67493c74aa78fca03fe08028, type: 3}
-  FireSword: {fileID: 21300000, guid: 94ff3307586d68c41b167f0cf451aa5e, type: 3}
-  ElectricStaff: {fileID: 21300000, guid: c28dbc0ed8b7fd5439e566312a2f5b8c, type: 3}
-  VoidStaff: {fileID: 21300000, guid: 4f0bc0f80abaf884c86ceb306f4eaba6, type: 3}
+  weaponSprites:
+  - {fileID: 21300000, guid: 646b5be926be9c0498ae73798ad41b7d, type: 3}
+  - {fileID: 21300000, guid: ae6df6ef67493c74aa78fca03fe08028, type: 3}
+  - {fileID: 21300000, guid: 94ff3307586d68c41b167f0cf451aa5e, type: 3}
+  - {fileID: 21300000, guid: c28dbc0ed8b7fd5439e566312a2f5b8c, type: 3}
+  - {fileID: 21300000, guid: 4f0bc0f80abaf884c86ceb306f4eaba6, type: 3}
+  - {fileID: 21300000, guid: 103d41f85a20b474fa27f4289317008b, type: 3}
+  - {fileID: 21300000, guid: b3a27469cedcbe04e86f97081ebacf36, type: 3}
+  - {fileID: 21300000, guid: c186b236fe4036649bfcc5b9ca730896, type: 3}
+  - {fileID: 21300000, guid: ff7b06ece8c2fbe468a0d64d0c6afa22, type: 3}
+  - {fileID: 21300000, guid: dc2800139fa5dcb46ae19e8b3dab8bf0, type: 3}
 --- !u!212 &637224200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1349,9 +1355,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1138206400}
-  lvl1: {fileID: 4552792704952671048, guid: 8071522de883815439f1c282d208ac22, type: 3}
-  lvl2: {fileID: 7401351079556102333, guid: be3a99121497d0649a6b0c496850c5ee, type: 3}
-  lvl3: {fileID: 2994433523390249752, guid: f9fd650e303ab1e4aaef4c4b0a720e58, type: 3}
+  forestLVL1: {fileID: 4552792704952671048, guid: 8071522de883815439f1c282d208ac22,
+    type: 3}
+  forestLVL2: {fileID: 7401351079556102333, guid: be3a99121497d0649a6b0c496850c5ee,
+    type: 3}
+  forestLVL3: {fileID: 2994433523390249752, guid: f9fd650e303ab1e4aaef4c4b0a720e58,
+    type: 3}
+  desertLVL1: {fileID: 3879775497091045712, guid: 2b31479caba31f54cbb4566feca87459,
+    type: 3}
+  desertLVL2: {fileID: 300627095298372, guid: aa7bf5858e7af354fa3b0dee06ad7eb6, type: 3}
+  desertLVL3: {fileID: 4415566466844286409, guid: 97a24f7cc1ac1e34da0f937d370f6066,
+    type: 3}
   shop: {fileID: 6811662008272628374, guid: a1f8360ce5b94db4cbf3f020cb876f54, type: 3}
   SpawnedEnemies: []
   lvlCounter: 1
@@ -1365,6 +1379,7 @@ MonoBehaviour:
   ammoLeftUI: {fileID: 1005795571}
   amountOfCoins: {fileID: 1317665159}
   firstTimeCounter: 0
+  newlvlrunning: 0
 --- !u!4 &841312691
 Transform:
   m_ObjectHideFlags: 0

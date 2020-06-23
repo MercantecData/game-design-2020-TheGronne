@@ -22,5 +22,6 @@ public class SpwnEnem2 : MonoBehaviour
             enemy.GetComponent<HealthController>().hp += GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter * 5 - 5;
             GameObject.Find("Controller").GetComponent<LVLControler>().SpawnedEnemies.Add(enemy);
         }
+        GameObject.Find("Controller").GetComponent<LVLControler>().newlvlrunning = false;
     }
 }

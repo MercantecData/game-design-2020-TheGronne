@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class LVLControler : MonoBehaviour
 {
     public GameObject player;
-    public GameObject lvl1;
-    public GameObject lvl2;
-    public GameObject lvl3;
+    public GameObject forestLVL1;
+    public GameObject forestLVL2;
+    public GameObject forestLVL3;
+    public GameObject desertLVL1;
+    public GameObject desertLVL2;
+    public GameObject desertLVL3;
     public GameObject shop;
     public List<GameObject> SpawnedEnemies = new List<GameObject>();
     public int lvlCounter = 1;
@@ -22,21 +25,22 @@ public class LVLControler : MonoBehaviour
     public GameObject ammoLeftUI;
     public GameObject amountOfCoins;
     public int firstTimeCounter; //Bliver brugt for at stoppe nogle ting i update sådan at de ikke kører mens man er i gang med noget andet
+    public bool newlvlrunning = false;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
-        int randomLVL = Random.Range(1,4);
+        int randomLVL = Random.Range(1, 4);
         switch (randomLVL)
         {
             case 1:
-                currentlvl = Instantiate(lvl1);
+                currentlvl = Instantiate(forestLVL1);
                 break;
             case 2:
-                currentlvl = Instantiate(lvl2);
+                currentlvl = Instantiate(forestLVL2);
                 break;
             case 3:
-                currentlvl = Instantiate(lvl3);
+                currentlvl = Instantiate(forestLVL3);
                 break;
             default:
                 break;
@@ -46,47 +50,69 @@ public class LVLControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(SpawnedEnemies.Count);
         amountOfCoins.GetComponent<Text>().text = player.GetComponent<playerController>().coins.ToString();
+        numberOfEnemies = SpawnedEnemies.Count;
         if (player.GetComponent<playerController>().weapons.Count == 0)
         {
             ammoLeftUI.SetActive(false);
             player.GetComponent<playerController>().usingItem = false;
         }
-        if (SpawnedEnemies.Count == 0 && firstTimeCounter == 0)
+        if (SpawnedEnemies.Count == 0 && firstTimeCounter == 0 && newlvlrunning == false)
         {
             lvlCounter++;
             victoryMenu();
             firstTimeCounter = 1;
         }
-        numberOfEnemies = SpawnedEnemies.Count;
         enemiesleft.GetComponent<Text>().text = ("Left: " + numberOfEnemies);
+        if (lvlCounter < 5)
+        {
+
+        } else if (lvlCounter < 10)
+        {
+            Camera.main.backgroundColor = Color.yellow;
+        }
     }
 
     public void newlvl()
     {
+        newlvlrunning = true;
         currentlvl.SetActive(false);
         int randomLVL = Random.Range(1, 4);
-        switch (randomLVL)
+        if (lvlCounter < 5)
         {
-            case 1:
-                currentlvl = Instantiate(lvl1);
-                break;
-            case 2:
-                currentlvl = Instantiate(lvl2);
-                break;
-            case 3:
-                currentlvl = Instantiate(lvl3);
-                break;
-            default:
-                break;
-        }
-        GameObject.Find("Player").transform.position = new Vector2(-1.5f, -0.8f);
-        for (int i = 0; i < SpawnedEnemies.Count; i++)
+            switch (randomLVL)
+            {
+                case 1:
+                    currentlvl = Instantiate(forestLVL1);
+                    break;
+                case 2:
+                    currentlvl = Instantiate(forestLVL2);
+                    break;
+                case 3:
+                    currentlvl = Instantiate(forestLVL3);
+                    break;
+                default:
+                    break;
+            }
+        } else if (lvlCounter < 10)
         {
-            SpawnedEnemies[i].GetComponent<DamageController>().damage += 3;
-            SpawnedEnemies[i].GetComponent<spiderScript>().speed += 0.25f;
-            SpawnedEnemies[i].GetComponent<waspScript>().speed += 0.5f;
+            switch (randomLVL)
+            {
+                case 1:
+                    currentlvl = Instantiate(desertLVL1);
+                    break;
+                case 2:
+                    currentlvl = Instantiate(desertLVL2);
+                    break;
+                case 3:
+                    currentlvl = Instantiate(desertLVL3);
+                    break;
+                default:
+                    break;
+            }
         }
+        player.transform.position = new Vector2(-1.5f, -0.8f);
         currentlvltext.GetComponent<Text>().text = ("Current lvl: " + lvlCounter);
         firstTimeCounter = 0;
     }
@@ -99,23 +125,18 @@ public class LVLControler : MonoBehaviour
 
     public void goToShop()
     {
-        Debug.Log(1);
         Time.timeScale = 1;
-        Debug.Log(2);
         victorymenu.SetActive(false);
-        Debug.Log(3);
         currentShop = Instantiate(shop);
-        Debug.Log(4);
-        GameObject.Find("Player").transform.position = new Vector2(-1.5f, -0.8f);
-        Debug.Log(5);
+        player.transform.position = new Vector2(-1.5f, -0.8f);
         currentlvl.SetActive(false);
     }
 
     public void NextLevel()
     {
         victorymenu.SetActive(false);
-        Time.timeScale = 1;
         newlvl();
+        Time.timeScale = 1;
     }
     private void FixedUpdate()
     {

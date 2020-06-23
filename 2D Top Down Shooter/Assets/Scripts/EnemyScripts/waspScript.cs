@@ -10,7 +10,13 @@ public class waspScript : EnemyScript
         speed = 3;
         element = "electric";
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<HealthController>().hp -= gameObject.GetComponent<DamageController>().damage;
+        }
+    }
     private void Update()
     {
         if (player.transform.position.x > gameObject.transform.position.x)
@@ -20,7 +26,6 @@ public class waspScript : EnemyScript
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
-
     }
 
     void FixedUpdate()

@@ -17,7 +17,7 @@ public class LeaveShop : MonoBehaviour
             }
             Destroy(GameObject.Find("Controller").GetComponent<LVLControler>().currentShop);
             GameObject.Find("Controller").GetComponent<LVLControler>().newlvl();
-            GameObject.Find("Controller").GetComponent<LVLControler>().firstTimeCounter = 0;
+            //GameObject.Find("Controller").GetComponent<LVLControler>().firstTimeCounter = 0;
         }
     }
 }
