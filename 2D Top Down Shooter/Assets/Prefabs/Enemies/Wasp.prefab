@@ -168,6 +168,7 @@ MonoBehaviour:
   - {fileID: 2797729504027202423, guid: a9b3de83f0bcd1e468ed0aa6ce08d884, type: 3}
   - {fileID: 2797729504027202423, guid: 48f793a0a9617e64c8f877d3856b955e, type: 3}
   - {fileID: 7195473665896841914, guid: b2bbe42b2f578b44aa8633d45b35e03b, type: 3}
+  deathMenu: {fileID: 0}
 --- !u!114 &-8578658381843100134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b7503b6392ade40b44b8be521b1f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 2
   element: 
   player: {fileID: 0}
+  anim: {fileID: 0}

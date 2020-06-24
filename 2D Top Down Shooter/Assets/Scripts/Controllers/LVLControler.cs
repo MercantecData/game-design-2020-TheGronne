@@ -12,6 +12,9 @@ public class LVLControler : MonoBehaviour
     public GameObject desertLVL1;
     public GameObject desertLVL2;
     public GameObject desertLVL3;
+    public GameObject snowLVL1;
+    public GameObject snowLVL2;
+    public GameObject snowLVL3;
     public GameObject shop;
     public List<GameObject> SpawnedEnemies = new List<GameObject>();
     public int lvlCounter = 1;
@@ -29,6 +32,7 @@ public class LVLControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        firstTimeCounter = 1;
         player = GameObject.Find("Player");
         int randomLVL = Random.Range(1, 4);
         switch (randomLVL)
@@ -50,6 +54,8 @@ public class LVLControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(firstTimeCounter);
+        Debug.Log(SpawnedEnemies.Count);
         amountOfCoins.GetComponent<Text>().text = player.GetComponent<playerController>().coins.ToString();
         numberOfEnemies = SpawnedEnemies.Count;
         if (player.GetComponent<playerController>().weapons.Count == 0)
@@ -70,6 +76,14 @@ public class LVLControler : MonoBehaviour
         } else if (lvlCounter < 10)
         {
             Camera.main.backgroundColor = Color.yellow;
+        } else if (lvlCounter < 15)
+        {
+            Camera.main.backgroundColor = Color.white;
+        }
+        if (lvlCounter >= 5 && lvlCounter < 10)
+        {
+            GameObject.Find("ForestMusic").GetComponent<AudioSource>().mute = true;
+            GameObject.Find("DesertMusic").GetComponent<AudioSource>().mute = false;
         }
     }
 
@@ -106,6 +120,22 @@ public class LVLControler : MonoBehaviour
                     break;
                 case 3:
                     currentlvl = Instantiate(desertLVL3);
+                    break;
+                default:
+                    break;
+            }
+        } else if (lvlCounter < 15)
+        {
+            switch (randomLVL)
+            {
+                case 1:
+                    currentlvl = Instantiate(snowLVL1);
+                    break;
+                case 2:
+                    currentlvl = Instantiate(snowLVL2);
+                    break;
+                case 3:
+                    currentlvl = Instantiate(snowLVL3);
                     break;
                 default:
                     break;

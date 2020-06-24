@@ -31890,9 +31890,9 @@ MonoBehaviour:
   - {fileID: 6747857669769054867}
   - {fileID: 6747857669868108471}
   enemies:
-  - {fileID: 7397186956738003608, guid: 7c1bea0d170b91a429794bf0c6c59a1a, type: 3}
-  - {fileID: 7397186956738003608, guid: 7c1bea0d170b91a429794bf0c6c59a1a, type: 3}
-  - {fileID: 7397186956738003608, guid: abe77767dd511714fad9ca4cef88b471, type: 3}
+  - {fileID: 7397186956738003608, guid: d39ca32fda3df2341adf2e3179a4499e, type: 3}
+  - {fileID: 7397186956738003608, guid: 202e00b8900ce1a4a8fb00a3ea00dc8e, type: 3}
+  - {fileID: 7397186956738003608, guid: 8b3c0847baca13d47ab4dddc39674b52, type: 3}
 --- !u!1 &6105304625005495088
 GameObject:
   m_ObjectHideFlags: 0

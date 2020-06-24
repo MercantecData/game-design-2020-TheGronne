@@ -13,11 +13,22 @@ public class shopItemScript : MonoBehaviour
     {
         for (int i = 0; i < spawnpoints.Length; i++)
         {
-            int randomItem = Random.Range(0, items.Length);
-            GameObject Item = Instantiate(items[randomItem], spawnpoints[i].position, spawnpoints[i].rotation);
-            //Item.transform.parent = gameObject.transform;
-            Item.AddComponent<triggerScript>();
-            spawnedItems.Add(Item);
+            if (GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter > 4)
+            {
+                int randomItem = Random.Range(4, items.Length);
+                GameObject Item = Instantiate(items[randomItem], spawnpoints[i].position, spawnpoints[i].rotation);
+                //Item.transform.parent = gameObject.transform;
+                Item.AddComponent<triggerScript>();
+                spawnedItems.Add(Item);
+            } else
+            {
+                int randomItem = Random.Range(0, 4);
+                GameObject Item = Instantiate(items[randomItem], spawnpoints[i].position, spawnpoints[i].rotation);
+                //Item.transform.parent = gameObject.transform;
+                Item.AddComponent<triggerScript>();
+                spawnedItems.Add(Item);
+            }
+            
         }
     }
 

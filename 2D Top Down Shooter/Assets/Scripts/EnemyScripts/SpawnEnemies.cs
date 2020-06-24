@@ -23,5 +23,6 @@ public class SpawnEnemies : MonoBehaviour
             GameObject.Find("Controller").GetComponent<LVLControler>().SpawnedEnemies.Add(enemy);
         }
         GameObject.Find("Controller").GetComponent<LVLControler>().newlvlrunning = false;
+        GameObject.Find("Controller").GetComponent<LVLControler>().firstTimeCounter = 0;
     }
 }

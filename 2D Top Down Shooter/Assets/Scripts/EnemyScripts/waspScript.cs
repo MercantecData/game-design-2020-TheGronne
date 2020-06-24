@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class waspScript : EnemyScript
 {
+    public Animator anim;
     void Start()
     {
         player = GameObject.Find("Player");
-        speed = 2 + GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter;
+        speed += GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter;
         element = "electric";
+        anim = player.GetComponent<Animator>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<HealthController>().hp -= gameObject.GetComponent<DamageController>().damage;
+            anim.Play("Hurt");
         }
     }
     private void Update()

@@ -5,13 +5,16 @@ using UnityEngine.EventSystems;
 
 public class snakeScript : EnemyScript
 {
+    public Animator anim;
     public Sprite[] sprites = new Sprite[4];
     public GameObject bulletPrefab;
     float coolDown = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
+
         player = GameObject.Find("Player");
+        anim = player.GetComponent<Animator>();
         speed = 0;
         int randomNumber = Random.Range(1, 8);
         int randomN = randomNumber;

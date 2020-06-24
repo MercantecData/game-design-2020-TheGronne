@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class spiderScript : EnemyScript
 {
+    public Animator anim;
     void Start()
     {
         player = GameObject.Find("Player");
-        speed = 1 + GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter;
-        gameObject.GetComponent<DamageController>().damage = 8 + GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter * 2;
+        anim = player.GetComponent<Animator>();
+        speed += GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter;
+        gameObject.GetComponent<DamageController>().damage += GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter * 2;
         int randomNumber = Random.Range(1, 5);
         int randomN = randomNumber;
         switch (randomN)
@@ -35,6 +37,7 @@ public class spiderScript : EnemyScript
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<HealthController>().hp -= gameObject.GetComponent<DamageController>().damage;
+            anim.Play("Hurt");
         }
     }
     void FixedUpdate()
