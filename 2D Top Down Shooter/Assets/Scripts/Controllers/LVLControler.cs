@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class LVLControler : MonoBehaviour
 {
     public GameObject player;
@@ -141,5 +141,11 @@ public class LVLControler : MonoBehaviour
     private void FixedUpdate()
     {
         ammoLeftText.GetComponent<Text>().text = player.GetComponent<playerController>().weapons[player.GetComponent<swapItems>().currentWeapon - 1].GetComponent<WeaponStats>().ammo.ToString();
+    }
+
+    public void retryGame()
+    {
+        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("InGame");
     }
 }

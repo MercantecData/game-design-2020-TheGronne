@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
     public int hp;
     GameObject lvl;
     public GameObject[] itemDrops = new GameObject[6];
+    public GameObject deathMenu;
     void Start()
     {
         
@@ -55,8 +57,12 @@ public class HealthController : MonoBehaviour
                         Instantiate(itemDrops[5], transform.position, transform.rotation);
                     }
                 }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
+            if (gameObject.tag == "Player")
+            {
+                deathMenu.SetActive(true);
+            }
         }
     }
 }
