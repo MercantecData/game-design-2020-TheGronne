@@ -37,8 +37,12 @@ public class spiderScript : EnemyScript
             collision.gameObject.GetComponent<HealthController>().hp -= gameObject.GetComponent<DamageController>().damage;
         }
     }
-    private void Update()
+    void FixedUpdate()
     {
+        Vector3 target = player.transform.position;
+        target.z = transform.position.z;
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
         Vector3 moveDirection = gameObject.transform.position - player.transform.position;
         if (moveDirection != Vector3.zero)
         {
@@ -46,11 +50,5 @@ public class spiderScript : EnemyScript
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.Rotate(0f, 0f, -90f);
         }
-    }
-    void FixedUpdate()
-    {
-        Vector3 target = player.transform.position;
-        target.z = transform.position.z;
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 }

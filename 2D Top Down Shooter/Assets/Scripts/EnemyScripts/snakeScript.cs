@@ -11,6 +11,7 @@ public class snakeScript : EnemyScript
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         speed = 0;
         int randomNumber = Random.Range(1, 8);
         int randomN = randomNumber;
@@ -41,7 +42,6 @@ public class snakeScript : EnemyScript
     // Update is called once per frame
     void Update()
     {
-        player = GameObject.Find("Player");
         if (player.transform.position.x > gameObject.transform.position.x)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;

@@ -12,12 +12,4 @@ public class EnemyScript : MonoBehaviour
     {
         player = GameObject.Find("Player");
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag.Contains("Player"))
-        {
-            //collision.gameObject.GetComponent<HealthController>().hp -= this.gameObject.GetComponent<DamageController>().damage;
-        }
-    }
 }

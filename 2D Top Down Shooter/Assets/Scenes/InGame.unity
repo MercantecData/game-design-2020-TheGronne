@@ -1499,7 +1499,7 @@ MonoBehaviour:
     type: 3}
   shop: {fileID: 6811662008272628374, guid: a1f8360ce5b94db4cbf3f020cb876f54, type: 3}
   SpawnedEnemies: []
-  lvlCounter: 5
+  lvlCounter: 1
   currentlvl: {fileID: 0}
   currentlvltext: {fileID: 1050701180}
   numberOfEnemies: 0
