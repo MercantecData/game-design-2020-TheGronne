@@ -7,7 +7,8 @@ public class spiderScript : EnemyScript
     void Start()
     {
         player = GameObject.Find("Player");
-        speed = 2;
+        speed = 1 + GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter;
+        gameObject.GetComponent<DamageController>().damage = 8 + GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter * 2;
         int randomNumber = Random.Range(1, 5);
         int randomN = randomNumber;
         switch (randomN)

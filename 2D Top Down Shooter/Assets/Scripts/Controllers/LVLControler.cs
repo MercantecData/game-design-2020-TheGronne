@@ -50,7 +50,6 @@ public class LVLControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(SpawnedEnemies.Count);
         amountOfCoins.GetComponent<Text>().text = player.GetComponent<playerController>().coins.ToString();
         numberOfEnemies = SpawnedEnemies.Count;
         if (player.GetComponent<playerController>().weapons.Count == 0)

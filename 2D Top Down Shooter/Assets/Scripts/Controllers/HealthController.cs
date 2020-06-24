@@ -37,7 +37,7 @@ public class HealthController : MonoBehaviour
                     {
                         Instantiate(itemDrops[0], transform.position, transform.rotation);
                     }
-                } else if (randomSpawnChance <= 25)
+                } else if (randomSpawnChance <= 21)
                 {
                     int randomWeapon = Random.Range(0, 100);
                     if (randomWeapon <= 50)

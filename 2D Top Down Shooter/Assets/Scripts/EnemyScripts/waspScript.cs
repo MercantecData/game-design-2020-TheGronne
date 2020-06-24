@@ -7,7 +7,7 @@ public class waspScript : EnemyScript
     void Start()
     {
         player = GameObject.Find("Player");
-        speed = 3;
+        speed = 2 + GameObject.Find("Controller").GetComponent<LVLControler>().lvlCounter;
         element = "electric";
     }
     private void OnCollisionEnter2D(Collision2D collision)
