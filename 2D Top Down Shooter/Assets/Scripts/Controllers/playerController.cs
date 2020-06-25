@@ -32,8 +32,8 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
         if (Input.GetKey(KeyCode.Escape))
         {
             pauseGame();
@@ -70,7 +70,10 @@ public class playerController : MonoBehaviour
         {
             transform.localRotation = Quaternion.Euler(0, 0, 270);
         }
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        Vector2 position = transform.position;
+        position.x += Time.deltaTime * moveSpeed * horizontal;
+        position.y += Time.deltaTime * moveSpeed * vertical;
+        rb.MovePosition(position);
     }
 
     public void resumeGame()

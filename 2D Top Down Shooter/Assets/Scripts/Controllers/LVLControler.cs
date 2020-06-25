@@ -32,6 +32,7 @@ public class LVLControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         firstTimeCounter = 1;
         player = GameObject.Find("Player");
         int randomLVL = Random.Range(1, 4);

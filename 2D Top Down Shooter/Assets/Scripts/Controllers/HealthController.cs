@@ -63,6 +63,7 @@ public class HealthController : MonoBehaviour
             if (gameObject.tag == "Player")
             {
                 deathMenu.SetActive(true);
+                Time.timeScale = 0;
             }
         }
     }

@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 327701651}
   - component: {fileID: 327701650}
   m_Layer: 0
-  m_Name: ShopButton
+  m_Name: quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1138206402}
-  smoothSpeed: 0.015
+  smoothSpeed: 0.075
   offset: {x: 0, y: 0, z: -2}
 --- !u!20 &519420031
 Camera:
@@ -2853,7 +2853,7 @@ GameObject:
   - component: {fileID: 1512711867}
   - component: {fileID: 1512711866}
   m_Layer: 0
-  m_Name: NextLevelButton
+  m_Name: retryGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
