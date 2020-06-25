@@ -79,7 +79,7 @@ public class LVLControler : MonoBehaviour
             Camera.main.backgroundColor = Color.yellow;
         } else if (lvlCounter < 15)
         {
-            Camera.main.backgroundColor = Color.white;
+            Camera.main.backgroundColor = Color.grey;
         }
         if (lvlCounter >= 5 && lvlCounter < 10)
         {
