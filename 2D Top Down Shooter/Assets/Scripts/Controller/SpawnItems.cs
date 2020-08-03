@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Android;
+using UnityEditor;
 using UnityEngine;
 
 public class SpawnItems : MonoBehaviour
